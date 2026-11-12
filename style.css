@@ -1,0 +1,250 @@
+#bg {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    transition: opacity 0.7s ease;
+}
+
+#bg.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stream{
+    position:absolute;
+    top:-100px;
+    font-family:monospace;
+    font-size:24px;
+    writing-mode:vertical-rl;
+    opacity:.3;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(120vh);
+    }
+}
+
+/*-------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #FCFFFF;
+    background-color: #0593C6;
+    background-image:
+        radial-gradient(circle at 35% 40%, #DB3996 0%, rgba(219, 57, 150, 0) 35%),
+        radial-gradient(circle at 90% 85%, rgba(252, 255, 255, 0.45) 0%, rgba(252, 255, 255, 0) 40%),
+        linear-gradient(135deg, #0593C6 0%, #A9DBEE 100%);
+    background-attachment: fixed;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px 5% 48px;
+
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+.page.page-hidden {
+    opacity: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    font-family: "Russo One", Arial, sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #FCFFFF;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+    background-color: rgba(252, 255, 255, 0.2);
+    border: 1px solid rgba(252, 255, 255, 0.4);
+    border-radius: 999px;
+}
+
+.nav-link {
+    padding: 6px 14px;
+    font-size: 15px;
+    color: #FCFFFF;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: rgba(252, 255, 255, 0.25);
+}
+
+.nav-link.active {
+    background-color: #DB3996;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 40px;
+    padding: 60px 0 40px;
+}
+
+.hero-text {
+    max-width: 720px;
+    text-align: center;
+}
+
+.prompt {
+    margin-bottom: 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.title {
+    font-family: "Russo One", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 120px;
+    line-height: 1;
+    letter-spacing: 8px;
+}
+
+.description {
+    max-width: 480px;
+    margin: 24px auto 32px;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 36px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 18px;
+    color: #0593C6;
+    background-color: #FCFFFF;
+    border: 2px solid #FCFFFF;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.button:hover {
+    color: #FCFFFF;
+    background-color: #DB3996;
+    border-color: #DB3996;
+    box-shadow: 0 0 18px rgba(219, 57, 150, 0.6);
+}
+
+.button:active {
+    background-color: #B82E7D;
+    border-color: #B82E7D;
+    transform: translateY(2px);
+}
+
+
+
+.sections {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding-top: 32px;
+}
+
+.card {
+    display: block;
+    padding: 20px;
+    color: #FCFFFF;
+    text-decoration: none;
+    background-color: rgba(5, 147, 198, 0.35);
+    border: 1px solid rgba(252, 255, 255, 0.45);
+    border-radius: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    border-color: #FCFFFF;
+    box-shadow: 0 0 16px rgba(252, 255, 255, 0.5);
+    transform: translateY(-4px);
+}
+
+.card-number {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 14px;
+    color: #F3B3D1;
+}
+
+.card-title {
+    margin: 8px 0;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #EEF8FC;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title {
+        font-size: 64px;
+    }
+
+    .sections {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        font-size: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title {
+        font-size: 44px;
+        letter-spacing: 4px;
+    }
+
+    .sections {
+        grid-template-columns: 1fr;
+    }
+}

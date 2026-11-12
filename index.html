@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+     <title>Securio — цифровая безопасность подростка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <body>
+        <div class="page page-hidden">
+            <header class="header">
+                <a href="index.html" class="logo">SECURIO</a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Главная</a>
+                    <a href="passwords.html" class="nav-link">Пароли</a>
+                    <a href="phishing.html" class="nav-link">Фишинг</a>
+                    <a href="social.html" class="nav-link">Соцсети</a>
+                    <a href="bullying.html" class="nav-link">Кибербуллинг</a>
+                </nav>
+            </header>
+
+            <main class="hero">
+                <div class="hero-text">
+                    <p class="prompt">// цифровая безопасность подростка</p>
+                    <h1 class="title" aria-label="SECURIO">
+                        <span class="letter">S</span><span class="letter">E</span><span class="letter">C</span><span class="letter">U</span><span class="letter">R</span><span class="letter">I</span><span class="letter">O</span>
+                    </h1>
+                    <p class="description">Как защитить пароли, распознать мошенников и не оставить в сети лишнего — коротко, понятно и с проверкой на практике.</p>
+                    <a href="passwords.html" class="button">Начать</a>
+                </div>
+
+
+            </main>
+
+            <section class="sections">
+                <a href="passwords.html" class="card">
+                    <span class="card-number">01</span>
+                    <h2 class="card-title">Пароли и защита</h2>
+                    <p class="card-text">Надёжный пароль, 2FA и терминал проверки.</p>
+                </a>
+                <a href="phishing.html" class="card">
+                    <span class="card-number">02</span>
+                    <h2 class="card-title">Фишинг и мошенники</h2>
+                    <p class="card-text">Фейковые ссылки, «розыгрыши» и коды из SMS.</p>
+                </a>
+                <a href="social.html" class="card">
+                    <span class="card-number">03</span>
+                    <h2 class="card-title">Соцсети и цифровой след</h2>
+                    <p class="card-text">Что не выкладывать и как настроить приватность.</p>
+                </a>
+                <a href="bullying.html" class="card">
+                    <span class="card-number">04</span>
+                    <h2 class="card-title">Кибербуллинг и помощь</h2>
+                    <p class="card-text">Что делать при травле, взломе и шантаже.</p>
+                </a>
+
+            </section>
+        </div>
+    </body>
+
+<div id="bg"></div>
+    <script>
+        const bg = document.getElementById("bg");
+        const page = document.querySelector(".page");
+
+        for(let i = 0; i < 100; i++){
+
+            const stream = document.createElement("div");
+
+            stream.className = "stream";
+
+            let text = "";
+
+            for(let j = 0; j < 30; j++){
+                text += Math.round(Math.random());
+            }
+
+        stream.textContent = text;
+
+        stream.style.left = Math.random()*100 + "%";
+        stream.style.top = -Math.random() * 2000 + "px";
+        stream.style.color =
+            Math.random()>0.5 ? "#00cfff" : "#";
+
+        stream.style.animationDuration =
+            1.5 + Math.random()*2 + "s";
+
+        bg.appendChild(stream);
+
+        setTimeout(() => {
+            bg.classList.add("hidden");
+            page.classList.remove("page-hidden");
+
+            setTimeout(() => {
+                bg.style.display = "none";
+                document.body.style.overflow = "auto";
+            }, 700);
+
+        }, 1500);
+    }
+    </script>
+</body>
+</html>
