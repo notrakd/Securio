@@ -20,6 +20,21 @@
     animation:fall linear infinite;
 }
 
+.loading-text {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "IBM Plex Sans", monospace;
+    font-weight: 700;
+    font-size: clamp(24px, 5vw, 48px);
+    letter-spacing: 2px;
+    color: #FCFFFF;
+}
+
+
 @keyframes fall{
     to{
         transform:translateY(120vh);
@@ -35,6 +50,9 @@
 }
 
 body {
+    --blob-x: 35%;
+    --blob-y: 40%;
+
     min-height: 100vh;
     font-family: "IBM Plex Sans", Arial, sans-serif;
     font-size: 17px;
@@ -42,7 +60,7 @@ body {
     color: #FCFFFF;
     background-color: #0593C6;
     background-image:
-        radial-gradient(circle at 35% 40%, #DB3996 0%, rgba(219, 57, 150, 0) 35%),
+        radial-gradient(circle at var(--blob-x) var(--blob-y), #DB3996 0%, rgba(219, 57, 150, 0) 35%),
         radial-gradient(circle at 90% 85%, rgba(252, 255, 255, 0.45) 0%, rgba(252, 255, 255, 0) 40%),
         linear-gradient(135deg, #0593C6 0%, #A9DBEE 100%);
     background-attachment: fixed;
