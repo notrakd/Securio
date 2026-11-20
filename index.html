@@ -62,12 +62,17 @@
 
             </section>
         </div>
+         <div id="bg">
+            <div class="loading-text">Загрузка...</div>
+        </div>
     </body>
 
 <div id="bg"></div>
     <script>
+    //матрица
         const bg = document.getElementById("bg");
         const page = document.querySelector(".page");
+        var timer = 1500;
 
         for(let i = 0; i < 100; i++){
 
@@ -86,12 +91,17 @@
         stream.style.left = Math.random()*100 + "%";
         stream.style.top = -Math.random() * 2000 + "px";
         stream.style.color =
-            Math.random()>0.5 ? "#00cfff" : "#";
+            Math.random()>0.5 ? "#0055ff" : "#e100ff";
 
         stream.style.animationDuration =
             1.5 + Math.random()*2 + "s";
 
         bg.appendChild(stream);
+    //скип загрузки
+        document.onclick = function(){
+            bg.classList.add("hidden");
+            page.classList.remove("page-hidden");
+        };
 
         setTimeout(() => {
             bg.classList.add("hidden");
@@ -102,8 +112,32 @@
                 document.body.style.overflow = "auto";
             }, 700);
 
-        }, 1500);
+        }, 2500);
     }
+    //плавающее пятно
+        const root = document.body;
+
+        const CENTER_X = 50, CENTER_Y = 50;
+
+        const RADIUS_X = 30;
+        const RADIUS_Y = 25;
+
+        const PERIOD = 14;
+
+        function animateBlob(time) {
+        const t = (time / 1000) * (Math.PI * 2 / PERIOD);
+
+        const k = 1 + Math.sin(t) ** 2;
+        const x = Math.cos(t) / k;
+        const y = (Math.sin(t) * Math.cos(t)) / k;
+
+        root.style.setProperty("--blob-x", (CENTER_X + x * RADIUS_X) + "%");
+        root.style.setProperty("--blob-y", (CENTER_Y + y * 2.8 * RADIUS_Y) + "%");
+
+        requestAnimationFrame(animateBlob);
+    }
+
+requestAnimationFrame(animateBlob);
     </script>
 </body>
 </html>
